@@ -74,7 +74,23 @@ def main():
     else:
         print('unknown option: ' + option)
         sys.exit(1)
+def count_words(filename):
+    with open(filename, 'r') as file:
+        words = file.read().lower().split()
+        count = dict()
 
+        for word in words:
+            if word in count:
+                count[word] +=1
+            else:
+                count[word] = 1
+    return count
+def print_words(filename):
+    for k, v in count_words(filename).items():
+        print(k, v)
+def print_top(filename):
+    for k, v in sorted(count_words(filename).items(), key=lambda x: x[1], reverse=True)[:20]:
+        print(k, ' ', v)
 
 if __name__ == '__main__':
     main()

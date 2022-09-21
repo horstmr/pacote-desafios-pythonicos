@@ -9,8 +9,27 @@ Irá retornar: [1, 2, 3]
 """
 
 def remove_adjacent(nums):
-    # +++ SUA SOLUÇÃO +++
-    return
+    # Solução 1 - /ricardodcn
+    # l_nova = nums[:1]
+    # l_nova[1:] = [j for i, j in zip(nums, nums[1:]) if i != j]
+    # return l_nova
+
+    # Solução 2 - /zeny-brus
+    if nums == []:
+        return nums
+    else:
+        return [a for a, b in zip(nums, nums[1:] + [not nums[-1]]) if a != b]
+
+    # Solução 3 - /avellar1975
+    #return [v for i, v in enumerate(nums) if nums[i] != nums[i - 1] or i == 0]
+
+    # Solução 4 - /pamatro
+    # def remove_adjacent(nums):
+    #     result = []
+    #     for num in nums:
+    #         if len(result) == 0 or num != result[-1]:
+    #             result.append(num)
+    #     return result
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
