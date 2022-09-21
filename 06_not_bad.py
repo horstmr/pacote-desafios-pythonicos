@@ -9,9 +9,12 @@ por 'good' e retorne a string resultante.
 Exemplo: 'The dinner is not that bad!' retorna 'The dinner is good!'
 """
 
+
 def not_bad(s):
-    # +++ SUA SOLUÇÃO +++
-    return
+    import re
+    s = re.sub(r'(not)(.*)(bad)', 'good', s)
+    return s
+
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
